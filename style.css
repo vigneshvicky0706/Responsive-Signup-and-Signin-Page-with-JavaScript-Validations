@@ -1,0 +1,167 @@
+/* RESET + CENTER */
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+/* BACKGROUND */
+
+#bgVideo {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+}
+
+
+/* OVERLAY */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+
+/* CONTAINER */
+
+.container {
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.container.show {
+  animation: zoomPopup 0.7s ease forwards;
+}
+
+
+/* POPUP */
+
+@keyframes zoomPopup {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* CARD */
+
+.card {
+  width: min(90vw, 350px);
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.35);
+  text-align: center;
+  color: white;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+
+/* FLOATING */
+
+@keyframes floatCard {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+
+/* INPUT */
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+}
+
+
+/* PASSWORD */
+
+.passwordBox {
+  position: relative;
+}
+
+.passwordBox span {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  cursor: pointer;
+}
+
+
+/* BUTTON */
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg,#ff512f,#ff9966);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff512f, 0 0 20px #ff512f;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ff512f, 0 0 40px #ff9966;
+}
+
+
+/* LINK */
+
+a {
+  color: yellow;
+  text-decoration: none;
+}
+
+
+/* LOADER */
+
+.loader {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.loader::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 5px solid white;
+  border-top: 5px solid orange;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

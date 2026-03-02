@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Background Image -->
+<img src="Screenshot 2026-03-02 133408.png" id="bgVideo">
+
+<div class="overlay"></div>
+
+<div class="container show">
+
+  <form id="signinForm" class="card">
+
+    <h2>Login</h2>
+
+    <input type="email" id="loginEmail" placeholder="Email" required>
+
+    <div class="passwordBox">
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <span onclick="togglePassword('loginPassword')">👁</span>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <p>New user? <a href="signup.html">Signup</a></p>
+
+  </form>
+
+</div>
+
+<div id="loader" class="loader"></div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
